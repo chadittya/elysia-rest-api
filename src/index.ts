@@ -78,6 +78,36 @@ const app = new Elysia()
       }),
     }
   )
+  .put(
+    "/users/:id",
+    ({ db, params, body }) => {
+      const userId = params.id;
+      console.log(`updating the user by id: ${userId}`);
+
+      const updateUserQuery = db.prepare(
+        "UPDATE users SET first_name=$first_name, last_name=$last_name, email=$email, about=$about WHERE user_id=$user_id RETURNING *"
+      );
+
+      return updateUserQuery.get({
+        $user_id: userId,
+        $first_name: body.first_name,
+        $last_name: body.last_name,
+        $email: body.email,
+        $about: body.about,
+      });
+    },
+    {
+      params: t.Object({
+        id: t.Numeric(),
+      }),
+      body: t.Object({
+        first_name: t.String(),
+        last_name: t.String(),
+        email: t.String(),
+        about: t.String(),
+      }),
+    }
+  )
   .listen(3000);
 
 console.log(

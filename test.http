@@ -13,7 +13,7 @@ Content-Type: application/json
 {
     "first_name": "John",
     "last_name": "Doe",
-    "email": "test@test.com",
+    "email": "test1@test.com",
     "about": "Making tutorial"
 }
 
@@ -22,3 +22,14 @@ POST http://localhost:3000/seed
 Content-Type: application/json
 
 {}
+
+### UPDATE user by id
+PUT http://localhost:3000/users/102
+Content-Type: application/json
+
+{
+    "first_name": "John",
+    "last_name": "Doe 2",
+    "email": "test1@test.com",
+    "about": "Making tutorial update good"
+}

@@ -1,4 +1,4 @@
 -- SQLite
 SELECT *
 FROM users
-WHERE user_id = 101;
+WHERE user_id = 102;
