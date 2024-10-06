@@ -1,0 +1,24 @@
+### list of users
+GET http://localhost:3000/users?limit=2
+Accept: application/json
+
+### list of single users
+GET http://localhost:3000/users/1
+Accept: application/json
+
+### create users
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "test@test.com",
+    "about": "Making tutorial"
+}
+
+### Seeding database with faker data for test
+POST http://localhost:3000/seed
+Content-Type: application/json
+
+{}
